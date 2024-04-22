@@ -1,2 +1,2 @@
-# Klimakverna-production
-Code repository for the production chain, common for WP2, WP3 and WP3B
+# Klimakverna-test-KAPy
+Code repository production chain pilot using KAPy. Affects WP2, WP3 and WP3B
