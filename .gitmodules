@@ -1,0 +1,3 @@
+[submodule "KAPy"]
+	path = KAPy
+	url = https://github.com/Klimaatlas/KAPy.git
