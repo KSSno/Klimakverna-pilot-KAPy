@@ -12,12 +12,20 @@ files = [
     f"{path_to_netcdfs}/{indicator}_{scenario[1]}_change_periods.nc",
 ]
 
-for filename in files:
+cmap = plt.cm.PuOr
+alpha = 0.8
+
+for sceanrio_idx, filename in enumerate(files):
     ds = xr.open_dataset(filename)
     print(ds)
     for period in [0, 1]:
         plt.figure()
-        ds["indicator_mean"].isel(periodID=period).plot()
-        plt.savefig(f"{path_to_netcdfs}/{indicator}_{scenario[period]}_indicator_mean_{model}_period_{period}")
+        ds["indicator_mean"].isel(periodID=period).plot(robust=True, vmin=-1e-5, vmax=1e-5, cmap=cmap, alpha=alpha)
+        plt.savefig(f"{path_to_netcdfs}/{indicator}_{scenario[sceanrio_idx]}_indicator_mean_{model}_period_{period}")
 
+        fig = plt.figure()
+        ds["indicator_mean_rel"].isel(periodID=period).plot(robust=True, vmin=-20, vmax=20, cmap=cmap, alpha=alpha)
+        plt.savefig(
+            f"{path_to_netcdfs}/{indicator}_{scenario[sceanrio_idx]}_indicator_mean_rel_{model}_period_{period}"
+        )
 plt.show()

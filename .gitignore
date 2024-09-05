@@ -1,4 +1,4 @@
-/testcase_1_results/*.nc
+/testcase_1_results/*/*.nc
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
