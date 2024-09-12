@@ -1,5 +1,8 @@
+/.vscode/
 /testcase_1_results/*/*.nc
 /jobs/
+Snakefile
+*.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
