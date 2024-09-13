@@ -3,9 +3,39 @@ import xarray as xr
 from pathlib import Path
 
 indicator = "102"
-model = "cnrm_hclim"
-# scenarios = ["rcp26", "rcp45"]
-scenarios = ["ssp370"]
+model = "noresm_hclim"
+cmip5_models = [
+    "cnrm_aladin",
+    "ecearth_cclm",
+    "ecearth_rca",
+    "ecearth_hirham",
+    "hadgem_rca",
+    "hadgem_remo",
+    "mpi_cclm",
+    "mpi_remo",
+    "noresm_rca",
+    "noresm_remo",
+]
+cmip6_models = [
+    "cnrm_hclim",
+    "cnrm_racmo",
+    "ecearth_racmo",
+    "ecearthveg_cclm",
+    "ecearthveg_hclim",
+    "miroc_icon",
+    "mpi_hclim",
+    "mpi_icon",
+    "mpi_racmo",
+    "noresm_hclim",
+]
+
+if model in cmip5_models:
+    scenarios = ["rcp26", "rcp45"]
+elif model in cmip6_models:
+    scenarios = ["ssp370"]
+else:
+    raise KeyError
+
 path_to_netcdfs = Path(
     f"/lustre/storeC-ext/users/klimakverna/development/Klimakverna-pilot-KAPy/KAPy/results/7.netcdf/{model}"
 )
