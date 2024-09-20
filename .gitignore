@@ -1,5 +1,6 @@
 /.vscode/
-/testcase_1_results/*/*.nc
+/testcase_1_results/model_ensembles/*/*.nc
+/testcase_1_results/model_ensembles/*/*/*.nc
 /jobs/
 Snakefile
 *.md
